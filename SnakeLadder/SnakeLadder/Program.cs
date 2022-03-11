@@ -8,7 +8,7 @@ const int SNAKE = 3;
 int Position = 0;
 
 Random random = new Random();
-while (Position <= 100)
+while (Position != 100)
 {
 
     int numOnDie = random.Next(1, 7);
@@ -21,14 +21,16 @@ while (Position <= 100)
     {
         case LADDER:
             Position += numOnDie;
+            Position = Position > 100 ? Position -= numOnDie : Position;
             break;
 
         case SNAKE:
             Position -= numOnDie;
+            Position = Position < 0 ? 0 : Position;
             break;
 
         case NOPLAY:
-            Console.WriteLine("POSITION " + Position);
+            
             break;
     }
     Console.WriteLine("POSITION " + Position);
