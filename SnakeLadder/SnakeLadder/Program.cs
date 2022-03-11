@@ -8,10 +8,14 @@ const int SNAKE = 3;
 int Position = 0;
 
 Random random = new Random();
+int dieCount = 0;
+
 while (Position != 100)
 {
 
     int numOnDie = random.Next(1, 7);
+    dieCount++;
+
     Console.WriteLine("No On Die " + numOnDie);
 
 
@@ -33,6 +37,9 @@ while (Position != 100)
             
             break;
     }
+
+    Console.WriteLine($"die count:{dieCount} position: {Position}");
+
     Console.WriteLine("POSITION " + Position);
 }
 
